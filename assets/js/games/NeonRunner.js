@@ -1,4 +1,5 @@
 import { BaseGame } from "./BaseGame.js";
+import { ParticleSystem } from "../engine/ParticleSystem.js";
 
 export class NeonRunner extends BaseGame {
   init() {
@@ -11,6 +12,7 @@ export class NeonRunner extends BaseGame {
       grounded: true,
     };
     this.obstacles = [];
+    this.particles = new ParticleSystem();
     this.timer = 0;
     this.score = 0;
     this.isGameOver = false;
@@ -23,9 +25,10 @@ export class NeonRunner extends BaseGame {
       this.player.vy = -12;
       this.player.grounded = false;
       this.sound.playBeep(600, "square", 0.15);
+      this.particles.emit(this.player.x + 15, this.player.y + 30, "#00f3ff", 8);
     }
 
-    this.player.vy += 0.6; // Gravity
+    this.player.vy += 0.6;
     this.player.y += this.player.vy;
 
     if (this.player.y >= 350) {
@@ -35,16 +38,15 @@ export class NeonRunner extends BaseGame {
     }
 
     this.timer += dt;
-    if (this.timer > 1.5) {
+    if (this.timer > 1.4) {
       this.timer = 0;
       this.obstacles.push({ x: 800, y: 350, width: 20, height: 30 });
     }
 
     for (let i = this.obstacles.length - 1; i >= 0; i--) {
       let obs = this.obstacles[i];
-      obs.x -= 5;
+      obs.x -= 6;
 
-      // Collision check
       if (
         this.player.x < obs.x + obs.width &&
         this.player.x + this.player.width > obs.x &&
@@ -52,6 +54,7 @@ export class NeonRunner extends BaseGame {
         this.player.y + this.player.height > obs.y
       ) {
         this.isGameOver = true;
+        this.particles.emit(this.player.x, this.player.y, "#ff0055", 25);
         this.sound.playBeep(150, "sawtooth", 0.4);
       }
 
@@ -60,20 +63,19 @@ export class NeonRunner extends BaseGame {
         this.score += 10;
       }
     }
+    this.particles.update();
   }
 
   render() {
     this.ctx.fillStyle = "#0a0a12";
     this.ctx.fillRect(0, 0, 800, 500);
 
-    // Ground
     this.ctx.strokeStyle = "#00f3ff";
     this.ctx.beginPath();
     this.ctx.moveTo(0, 380);
     this.ctx.lineTo(800, 380);
     this.ctx.stroke();
 
-    // Player
     this.ctx.fillStyle = "#ff0055";
     this.ctx.fillRect(
       this.player.x,
@@ -82,10 +84,11 @@ export class NeonRunner extends BaseGame {
       this.player.height,
     );
 
-    // Obstacles
     this.ctx.fillStyle = "#ffe600";
     this.obstacles.forEach((obs) =>
       this.ctx.fillRect(obs.x, obs.y, obs.width, obs.height),
     );
+
+    this.particles.render(this.ctx);
   }
 }
