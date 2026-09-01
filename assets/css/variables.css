@@ -1,0 +1,12 @@
+:root {
+  --bg-primary: #0a0a12;
+  --bg-surface: #121225;
+  --neon-cyan: #00f3ff;
+  --neon-pink: #ff0055;
+  --neon-purple: #9d00ff;
+  --neon-yellow: #ffe600;
+  --text-main: #e2e8f0;
+  --font-heading: 'Courier New', Courier, monospace;
+  --font-body: system-ui, -apple-system, sans-serif;
+  --crt-scanline: rgba(18, 16, 16, 0);
+}
