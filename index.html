@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberPulse Arcade | Interactive Web Games</title>
+    <link rel="stylesheet" href="assets/css/variables.css">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/effects.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+    <link rel="stylesheet" href="assets/css/runner.css">
+    <link rel="stylesheet" href="assets/css/space.css">
+    <link rel="stylesheet" href="assets/css/memory.css">
+</head>
+<body class="crt-overlay">
+    <div id="app">
+        <header class="arcade-header">
+            <h1 class="glitch-title" data-text="CYBERPULSE">CYBERPULSE</h1>
+            <nav class="game-selector">
+                <button class="nav-btn active" data-game="runner">Neon Runner</button>
+                <button class="nav-btn" data-game="space">Space Defense</button>
+                <button class="nav-btn" data-game="memory">Memory Matrix</button>
+            </nav>
+            <div class="controls-panel">
+                <button id="audio-toggle" class="icon-btn">🔊</button>
+                <button id="leaderboard-btn" class="icon-btn">🏆</button>
+            </div>
+        </header>
+
+        <main class="arcade-stage">
+            <div id="game-container">
+                <canvas id="game-canvas" width="800" height="500"></canvas>
+                <div id="ui-overlay" class="overlay hidden">
+                    <h2 id="overlay-title">GAME OVER</h2>
+                    <p id="overlay-score">Score: 0</p>
+                    <button id="restart-btn" class="cyber-btn">PLAY AGAIN</button>
+                </div>
+            </div>
+        </main>
+
+        <footer class="arcade-footer">
+            <p>Built with Vanilla JavaScript & HTML5 Canvas | Portfolio Edition</p>
+        </footer>
+    </div>
+
+    <script type="module" src="assets/js/app.js"></script>
+</body>
+</html>
