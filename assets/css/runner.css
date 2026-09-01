@@ -1,0 +1,13 @@
+#game-container {
+  position: relative;
+  width: 800px;
+  height: 500px;
+  margin: 0 auto;
+  border: 2px solid var(--neon-cyan);
+  box-shadow: 0 0 15px rgba(0, 243, 255, 0.2);
+}
+
+canvas {
+  display: block;
+  background-color: #05050a;
+}
