@@ -1,0 +1,28 @@
+.arcade-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bg-surface);
+  padding: 15px 25px;
+  border: 1px solid var(--neon-purple);
+  border-radius: 8px;
+}
+
+.game-selector {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-btn {
+  background: none;
+  border: none;
+  color: var(--text-main);
+  padding: 8px 16px;
+  cursor: pointer;
+  font-family: var(--font-heading);
+}
+
+.nav-btn.active {
+  color: var(--neon-yellow);
+  border-bottom: 2px solid var(--neon-yellow);
+}
