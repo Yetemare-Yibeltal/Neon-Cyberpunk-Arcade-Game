@@ -1,0 +1,28 @@
+.cyber-btn {
+  background: transparent;
+  border: 2px solid var(--neon-cyan);
+  color: var(--neon-cyan);
+  padding: 10px 24px;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+  transition: all 0.2s ease;
+}
+
+.cyber-btn:hover {
+  background: var(--neon-cyan);
+  color: var(--bg-primary);
+  box-shadow: 0 0 20px var(--neon-cyan);
+}
+
+.icon-btn {
+  background: var(--bg-surface);
+  border: 1px solid var(--neon-purple);
+  color: var(--text-main);
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
