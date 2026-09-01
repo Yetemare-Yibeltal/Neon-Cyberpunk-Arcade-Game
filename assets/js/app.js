@@ -3,6 +3,7 @@ import { InputHandler } from "./engine/InputHandler.js";
 import { SoundFX } from "./engine/SoundFX.js";
 import { GameLoop } from "./engine/GameLoop.js";
 import { Storage } from "./engine/Storage.js";
+import { BgmSynth } from "./engine/BgmSynth.js";
 import { NeonRunner } from "./games/NeonRunner.js";
 import { SpaceInvaders } from "./games/SpaceInvaders.js";
 import { MemoryMatrix } from "./games/MemoryMatrix.js";
@@ -13,6 +14,7 @@ import { LeaderboardUI } from "./ui/LeaderboardUI.js";
 const canvas = new Canvas("game-canvas", 800, 500);
 const input = new InputHandler();
 const sound = new SoundFX();
+const bgm = new BgmSynth(sound);
 const modal = new Modal("ui-overlay");
 new AudioToggle("audio-toggle", sound);
 
@@ -32,8 +34,8 @@ const loop = new GameLoop(
 );
 
 loop.start();
+bgm.start();
 
-// Tab selection listeners
 document.querySelectorAll(".nav-btn").forEach((btn) => {
   btn.addEventListener("click", (e) => {
     document
